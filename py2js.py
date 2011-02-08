@@ -643,11 +643,7 @@ class JS(object):
         return str(node.n)
 
     def visit_Str(self, node):
-        def escape(s):
-            s = s.replace("\n", "\\n")
-            s = s.replace('"', '\\"')
-            return s
-        return 'str("%s")' % escape(node.s)
+        return 'str(%s)' % repr(node.s)
 
     def visit_Call(self, node):
         func = self.visit(node.func)
