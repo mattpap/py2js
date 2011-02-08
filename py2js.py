@@ -643,7 +643,7 @@ class JS(object):
         return str(node.n)
 
     def visit_Str(self, node):
-        return 'str(%s)' % repr(node.s)
+        return 'str(%s)' % repr(node.s).lstrip("urb") ## ist ther any more string prefixes?
 
     def visit_Call(self, node):
         func = self.visit(node.func)
